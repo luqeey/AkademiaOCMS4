@@ -1,0 +1,34 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Title
+        type: text
+        span: auto
+        required: true
+
+    project_id:
+        label: Project ID
+        type: text
+        span: auto
+        required: true
+
+    customer:
+        label: Customer
+        type: text
+        span: auto
+        required: true
+
+    list:
+        label: List
+        type: switch
+        comment: 'Enable or disable the list'
+        span: auto
+
+    projectManager:
+        label: Project Manager
+        type: text
+        span: auto
+        required: true

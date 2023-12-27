@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Task
+
+# Model Form Field configuration
+form: $/app/task/models/task/fields.yaml
+
+# Model Class name
+modelClass: App\Task\Models\Task
+
+# Default redirect location
+defaultRedirect: app/task/tasks
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: app/task/tasks/update/:id
+    redirectClose: app/task/tasks
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: app/task/tasks
+    redirectClose: app/task/tasks
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -1,0 +1,20 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    planned_start:
+        label: Planned Start
+        searchable: true
+
+    planned_end:
+        label: Planned End
+        searchable: true
+
+    planned_time:
+        label: Planned Time (hours)
+        searchable: true
