@@ -7,6 +7,10 @@ columns:
         label: ID
         searchable: true
 
+    task_id: 
+        label: Task ID
+        searchable: true
+
     planned_start:
         label: Planned Start
         searchable: true

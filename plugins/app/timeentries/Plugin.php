@@ -1,11 +1,10 @@
-<?php 
-namespace App\Task;
+<?php namespace App\TimeEntries;
 
 use Backend;
 use System\Classes\PluginBase;
 
 /**
- * Task Plugin Information File
+ * TimeEntries Plugin Information File
  */
 class Plugin extends PluginBase
 {
@@ -17,10 +16,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Task',
+            'name'        => 'TimeEntries',
             'description' => 'No description provided yet...',
             'author'      => 'App',
-            'icon'        => 'icon-calendar'
+            'icon'        => 'icon-hourglass-half'
         ];
     }
 
@@ -53,7 +52,7 @@ class Plugin extends PluginBase
     {
 
         return [
-            'App\Task\Components\MyComponent' => 'myComponent',
+            'App\TimeEntries\Components\MyComponent' => 'myComponent',
         ];
     }
 
@@ -66,8 +65,8 @@ class Plugin extends PluginBase
     {
 
         return [
-            'app.task.some_permission' => [
-                'tab' => 'Task',
+            'app.timeentries.some_permission' => [
+                'tab' => 'TimeEntries',
                 'label' => 'Some permission'
             ],
         ];
@@ -82,11 +81,11 @@ class Plugin extends PluginBase
     {
 
         return [
-            'task' => [
-                'label'       => 'Task',
-                'url'         => Backend::url('app/task/Tasks'),
-                'icon'        => 'icon-calendar',
-                'permissions' => ['app.task.*'],
+            'timeentries' => [
+                'label'       => 'TimeEntries',
+                'url'         => Backend::url('app/timeentries/TimeEntries'),
+                'icon'        => 'icon-hourglass-half',
+                'permissions' => ['app.timeentries.*'],
                 'order'       => 500,
             ],
         ];

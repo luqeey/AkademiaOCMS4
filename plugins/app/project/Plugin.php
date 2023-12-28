@@ -20,7 +20,7 @@ class Plugin extends PluginBase
             'name'        => 'Project',
             'description' => 'No description provided yet...',
             'author'      => 'App',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-laptop'
         ];
     }
 

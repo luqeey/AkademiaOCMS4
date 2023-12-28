@@ -1,19 +1,19 @@
 <?php 
-namespace App\Project\Models;
+namespace App\TimeEntries\Models;
 
 use Model;
 
 /**
- * Project Model
+ * Timeentry Model
  */
-class Project extends Model
+class Timeentry extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'app_project_projects';
+    public $table = 'app_timeentries_timeentries';
 
     /**
      * @var array Guarded fields
@@ -58,14 +58,11 @@ class Project extends Model
         'updated_at'
     ];
 
-    public $hasMany = [
-        'tasks' => ['App\Task\Models\Task', 'key' => 'project_id']
-    ];
-
     /**
      * @var array Relations
      */
     public $hasOne = [];
+    public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [];

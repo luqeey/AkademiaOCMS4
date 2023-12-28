@@ -1,4 +1,5 @@
-<?php namespace App\Task\Models;
+<?php 
+namespace App\Task\Models;
 
 use Model;
 
@@ -62,14 +63,20 @@ class Task extends Model
         'updated_at'
     ];
 
+    public $belongsTo = [
+        'project' => ['App\Project\Models\Project', 'key' => 'project_id']
+    ];
+
+    public $hasMany = [
+        'timeEntries' => ['App\TimeEntries\Models\TimeEntry', 'key' => 'task_id'],
+    ];
+
     /**
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

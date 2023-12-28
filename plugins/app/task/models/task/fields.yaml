@@ -3,21 +3,32 @@
 # ===================================
 
 fields:
+    id:
+        label: ID
+        disabled: true
+
+    task_id:
+        label: Task ID
+        type: text
+        span: auto
+        required: true
+
     planned_start:
         label: Planned Start
-        type: date
-        span: auto
+        type: datepicker
+        format: d-m-Y
+        mode: datetime
         required: true
 
     planned_end:
         label: Planned End
-        type: date
-        span: auto
+        type: datepicker
         required: true
+        format: d-m-Y
+        mode: datetime
         comment: 'Must be after Planned Start'
 
     planned_time:
         label: Planned Time (hours)
         type: number
-        span: auto
         comment: 'Enter the planned time in hours'
