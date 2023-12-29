@@ -21,7 +21,6 @@ class ProjectController extends Controller
         $project->project_id = post('project_id');
         $project->customer = post('customer');
         $project->projectManager = post('projectManager');
-        $project->is_done = post('is_done');
         $project->save();
     
         return ProjectResource::make($project);
@@ -34,7 +33,6 @@ class ProjectController extends Controller
         $project->project_id = post('project_id') ?: $project->project_id;
         $project->customer = post('customer') ?: $project->customer;
         $project->projectManager = post('projectManager') ?: $project->projectManager;
-        $project->is_done = post('is_done') ?: $project->is_done;
         $project->save();
         return new ProjectResource($project);
     }

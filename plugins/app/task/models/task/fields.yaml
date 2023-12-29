@@ -32,3 +32,9 @@ fields:
         label: Planned Time (hours)
         type: number
         comment: 'Enter the planned time in hours'
+
+    is_done: 
+        label: Done
+        type: switch
+        comment: 'Enable or disable the list'
+        span: auto

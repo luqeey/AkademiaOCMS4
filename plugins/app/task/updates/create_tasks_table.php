@@ -15,6 +15,7 @@ class CreateTasksTable extends Migration
             $table->dateTime('planned_start');
             $table->dateTime('planned_end');
             $table->integer('planned_time')->nullable();
+            $table->boolean('is_done')->default(false);
             $table->timestamps();
         });
     }

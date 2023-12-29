@@ -22,3 +22,8 @@ columns:
     planned_time:
         label: Planned Time (hours)
         searchable: true
+
+    is_done:
+        label: Done
+        type: switch
+        searchable: true
