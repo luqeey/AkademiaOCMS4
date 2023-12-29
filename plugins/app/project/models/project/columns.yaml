@@ -20,8 +20,8 @@ columns:
         label: Customer
         searchable: true
 
-    list:
-        label: List
+    is_done:
+        label: Done
         type: switch
         searchable: true
 

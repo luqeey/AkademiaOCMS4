@@ -9,26 +9,42 @@ use App\Project\Http\Resources\ProjectResource;
 
 class ProjectController extends Controller
 {
-    public function store(Request $request) 
+    public function index() 
+    {
+        return ProjectResource::collection(Project::all());
+    }
+
+    public function store() 
     {
         $project = new Project();
         $project->title = post('title');
         $project->project_id = post('project_id');
         $project->customer = post('customer');
         $project->projectManager = post('projectManager');
-
+        $project->is_done = post('is_done');
+        $project->save();
+    
         return ProjectResource::make($project);
     }
 
-    public function index($id) 
+    public function update($key)
     {
-        $data = Project::all();
-
-        return ProjectResource::make($data);
+        $project = Project::findOrFail($key);
+        $project->title = post('title') ?: $project->title;
+        $project->project_id = post('project_id') ?: $project->project_id;
+        $project->customer = post('customer') ?: $project->customer;
+        $project->projectManager = post('projectManager') ?: $project->projectManager;
+        $project->is_done = post('is_done') ?: $project->is_done;
+        $project->save();
+        return new ProjectResource($project);
     }
 
-    public function update(Request $request, $id)
+    public function done($key)
     {
-        return ['message' => 'Project updated successfully'];
+        $project = Project::findOrFail($key);
+        $project->is_done = true;
+        $project->save();
+        return new ProjectResource($project);
     }
+
 }

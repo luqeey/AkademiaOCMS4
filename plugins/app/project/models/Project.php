@@ -23,7 +23,7 @@ class Project extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['title', 'project_id', 'customer', 'projectManager', 'is_done'];
 
     /**
      * @var array Validation rules for attributes

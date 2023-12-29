@@ -14,7 +14,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('project_id');
             $table->string('customer');
-            $table->boolean('list')->default(false);
+            $table->boolean('is_done')->default(false);
             $table->string('projectManager');
             $table->timestamps();
         });

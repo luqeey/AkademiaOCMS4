@@ -21,8 +21,8 @@ fields:
         span: auto
         required: true
 
-    list:
-        label: List
+    is_done:
+        label: Done
         type: switch
         comment: 'Enable or disable the list'
         span: auto

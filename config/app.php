@@ -154,7 +154,7 @@ return [
 
     'providers' => array_merge(include(base_path('modules/system/providers.php')), [
 
-        // 'Illuminate\Html\HtmlServiceProvider', // Example
+        Illuminate\Auth\AuthServiceProvider::class,
 
         'System\ServiceProvider',
     ]),
