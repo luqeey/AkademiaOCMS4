@@ -1,7 +1,11 @@
-<?php namespace App\TimeEntries\Controllers;
+<?php 
+namespace App\TimeEntries\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use App\TimeEntries\Http\Resources\TimeEntryResource;
+use App\TimeEntries\Models\TimeEntry;
+use Carbon\Carbon;
 
 /**
  * Time Entries Back-end Controller
@@ -16,14 +20,7 @@ class TimeEntries extends Controller
         'Backend.Behaviors.ListController'
     ];
 
-    /**
-     * @var string Configuration file for the `FormController` behavior.
-     */
     public $formConfig = 'config_form.yaml';
-
-    /**
-     * @var string Configuration file for the `ListController` behavior.
-     */
     public $listConfig = 'config_list.yaml';
 
     public function __construct()
@@ -32,4 +29,20 @@ class TimeEntries extends Controller
 
         BackendMenu::setContext('App.TimeEntries', 'timeentries', 'timeentries');
     }
+
+    // public function create() 
+    // {
+    //     $timeentry = new TimeEntry();
+    //     $timeentry->start_time = post('start_time');
+    //     $timeentry->save();
+    //     return new TimeEntryResource($timeentry);
+    // }
+
+    // public function update($key) 
+    // {
+    //     $timeentry = TimeEntry::findOrFail($key);
+    //     $timeentry->end_time = Carbon::create(now());
+    //     $timeentry->save();
+    //     return new TimeEntryResource($timeentry->refresh());
+    // }
 }

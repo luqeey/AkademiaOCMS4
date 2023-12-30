@@ -2,6 +2,7 @@
 namespace App\TimeEntries\Models;
 
 use Model;
+use App\Task\Models\Task;
 
 /**
  * Timeentry Model
@@ -21,14 +22,12 @@ class Timeentry extends Model
     protected $guarded = ['*'];
 
     /**
-     * @var array Fillable fields
-     */
-    protected $fillable = [];
-
-    /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'start_time' => 'required|date',
+        'end_time' => 'required|date|after:start_time',
+    ];
 
     /**
      * @var array Attributes to be cast to native types
@@ -58,18 +57,7 @@ class Timeentry extends Model
         'updated_at'
     ];
 
-    /**
-     * @var array Relations
-     */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $belongsTo = [
+        'task' => Task::class
+    ];
 }

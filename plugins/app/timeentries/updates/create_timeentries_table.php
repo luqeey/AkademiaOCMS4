@@ -11,8 +11,8 @@ class CreateTimeentriesTable extends Migration
         Schema::create('app_timeentries_timeentries', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_time')->nullable();
+            $table->dateTime('end_time')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 namespace App\Project\Models;
 
 use Model;
+use App\Task\Models\Task;
 
 /**
  * Project Model
@@ -28,12 +29,20 @@ class Project extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'title' => 'required|string|max:255',
+        'project_id' => 'required|integer',
+        'customer' => 'required|string|max:255',
+        'projectManager' => 'required|string|max:255',
+        'is_done' => 'boolean',
+    ];
 
     /**
      * @var array Attributes to be cast to native types
      */
-    protected $casts = [];
+    protected $casts = [
+        'is_done' => 'boolean',
+    ];
 
     /**
      * @var array Attributes to be cast to JSON
@@ -59,20 +68,6 @@ class Project extends Model
     ];
 
     public $hasMany = [
-        'tasks' => ['App\Task\Models\Task', 'key' => 'project_id']
+        'tasks' => Task::class
     ];
-
-    /**
-     * @var array Relations
-     */
-    public $hasOne = [];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
 }

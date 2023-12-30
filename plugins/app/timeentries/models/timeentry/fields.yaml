@@ -12,11 +12,9 @@ fields:
         type: datepicker
         format: d-m-Y
         mode: datetime
-        required: true
 
     end_time: 
         label: End Time 
         type: datepicker
         format: d-m-Y
         mode: datetime
-        required: true

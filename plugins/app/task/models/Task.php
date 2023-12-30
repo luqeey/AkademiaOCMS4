@@ -2,6 +2,8 @@
 namespace App\Task\Models;
 
 use Model;
+use App\TimeEntries\Models\Timeentry;
+use App\Project\Models\Project;
 
 /**
  * Task Model
@@ -28,7 +30,11 @@ class Task extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'planned_start' => 'required|date',
+        'planned_end' => 'required|date|after:planned_start',
+        'planned_time' => 'numeric|min:0',
+    ];
 
     /**
      * @var array Attributes to be cast to native types
@@ -64,23 +70,10 @@ class Task extends Model
     ];
 
     public $belongsTo = [
-        'project' => ['App\Project\Models\Project', 'key' => 'project_id']
+        'project' => Project::class
     ];
 
     public $hasMany = [
-        'timeEntries' => ['App\TimeEntries\Models\TimeEntry', 'key' => 'task_id'],
+        'timeEntries' => TimeEntry::class
     ];
-
-    /**
-     * @var array Relations
-     */
-    public $hasOne = [];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
 }
