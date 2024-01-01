@@ -11,6 +11,7 @@ class CreateTasksTable extends Migration
         Schema::create('app_task_tasks', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('user_id');
             $table->string('task_id');
             $table->dateTime('planned_start');
             $table->dateTime('planned_end');

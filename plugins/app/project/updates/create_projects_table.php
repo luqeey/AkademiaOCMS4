@@ -11,6 +11,7 @@ class CreateProjectsTable extends Migration
         Schema::create('app_project_projects', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('user_id');
             $table->string('title');
             $table->string('project_id');
             $table->string('customer');

@@ -7,6 +7,11 @@ fields:
         label: ID
         disabled: true
 
+    user_id:
+        label: User ID
+        type: text
+        required: true
+
     task_id:
         label: Task ID
         type: text

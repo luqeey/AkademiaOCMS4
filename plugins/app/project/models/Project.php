@@ -3,6 +3,7 @@ namespace App\Project\Models;
 
 use Model;
 use App\Task\Models\Task;
+use RainLab\User\Models\User;
 
 /**
  * Project Model
@@ -69,5 +70,9 @@ class Project extends Model
 
     public $hasMany = [
         'tasks' => Task::class
+    ];
+
+    public $belongsTo = [
+        'user' => User::class
     ];
 }

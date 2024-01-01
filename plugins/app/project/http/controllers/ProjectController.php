@@ -16,7 +16,11 @@ class ProjectController extends Controller
 
     public function store() 
     {
+        $user = auth()->user();
+        $user_id = $user->id;
+
         $project = new Project();
+        $project->user_id = $user_id;
         $project->title = post('title');
         $project->project_id = post('project_id');
         $project->customer = post('customer');

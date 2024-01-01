@@ -16,7 +16,11 @@ class TaskController extends Controller
 
     public function store() 
     {
+        $user = auth()->user();
+        $user_id = $user->id;
+
         $task = new Task();
+        $task->user_id = $user_id;
         $task->task_id = post('task_id');
         $task->planned_start = post('planned_start');
         $task->planned_end = post('planned_end');

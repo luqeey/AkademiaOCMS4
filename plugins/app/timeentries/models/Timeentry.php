@@ -3,6 +3,7 @@ namespace App\TimeEntries\Models;
 
 use Model;
 use App\Task\Models\Task;
+use RainLab\User\Models\User;
 
 /**
  * Timeentry Model
@@ -24,10 +25,7 @@ class Timeentry extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [
-        'start_time' => 'required|date',
-        'end_time' => 'required|date|after:start_time',
-    ];
+    public $rules = [];
 
     /**
      * @var array Attributes to be cast to native types
@@ -58,6 +56,7 @@ class Timeentry extends Model
     ];
 
     public $belongsTo = [
-        'task' => Task::class
+        'task' => Task::class,
+        'user' => User::class
     ];
 }

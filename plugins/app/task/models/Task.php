@@ -4,7 +4,7 @@ namespace App\Task\Models;
 use Model;
 use App\TimeEntries\Models\Timeentry;
 use App\Project\Models\Project;
-
+use RainLab\User\Models\User;
 /**
  * Task Model
  */
@@ -70,10 +70,11 @@ class Task extends Model
     ];
 
     public $belongsTo = [
-        'project' => Project::class
+        'project' => Project::class,
+        'user' => User::class
     ];
 
     public $hasMany = [
-        'timeEntries' => TimeEntry::class
+        'timeEntries' => Timeentry::class
     ];
 }
