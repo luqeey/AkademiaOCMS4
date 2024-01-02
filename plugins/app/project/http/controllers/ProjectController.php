@@ -33,17 +33,28 @@ class ProjectController extends Controller
     public function update($key)
     {
         $project = Project::findOrFail($key);
+
+        // if ($project->user_id !== auth()->user()->id) {
+        //     abort(403, 'Unauthorized action.');
+        // }
+
         $project->title = post('title') ?: $project->title;
         $project->project_id = post('project_id') ?: $project->project_id;
         $project->customer = post('customer') ?: $project->customer;
         $project->projectManager = post('projectManager') ?: $project->projectManager;
         $project->save();
+
         return new ProjectResource($project);
     }
 
     public function done($key)
     {
         $project = Project::findOrFail($key);
+
+        // if ($project->user_id !== auth()->user()->id) {
+        //     abort(403, 'Unauthorized action.');
+        // }
+        
         $project->is_done = true;
         $project->save();
         return new ProjectResource($project);

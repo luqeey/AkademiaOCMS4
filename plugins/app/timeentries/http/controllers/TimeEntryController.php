@@ -26,6 +26,11 @@ class TimeEntryController extends Controller
     public function endTracking($key) 
     {
         $timeentry = TimeEntry::findOrFail($key);
+
+        if ($timeentry->user_id !== auth()->user()->id) {
+            abort(403, 'Unauthorized action.');
+        }
+
         // $timeentry->end_time = Carbon::create(now());
         $timeentry->end_time = post('end_time');
         $timeentry->save();
