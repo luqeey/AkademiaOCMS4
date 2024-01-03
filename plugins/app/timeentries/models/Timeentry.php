@@ -5,51 +5,17 @@ use Model;
 use App\Task\Models\Task;
 use RainLab\User\Models\User;
 
-/**
- * Timeentry Model
- */
 class Timeentry extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-    /**
-     * @var string The database table used by the model.
-     */
     public $table = 'app_timeentries_timeentries';
 
-    /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
+    public $rules = [
+        'user_id' => 'required|exists:users,id',
+        'start_time' => 'required|date',
+    ];
 
-    /**
-     * @var array Validation rules for attributes
-     */
-    public $rules = [];
-
-    /**
-     * @var array Attributes to be cast to native types
-     */
-    protected $casts = [];
-
-    /**
-     * @var array Attributes to be cast to JSON
-     */
-    protected $jsonable = [];
-
-    /**
-     * @var array Attributes to be appended to the API representation of the model (ex. toArray())
-     */
-    protected $appends = [];
-
-    /**
-     * @var array Attributes to be removed from the API representation of the model (ex. toArray())
-     */
-    protected $hidden = [];
-
-    /**
-     * @var array Attributes to be cast to Argon (Carbon) instances
-     */
     protected $dates = [
         'created_at',
         'updated_at'
